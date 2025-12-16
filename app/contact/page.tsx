@@ -25,14 +25,14 @@ export default function ContactPage() {
                     <div className="absolute inset-0 opacity-20">
                         <Image src="/hero-bg.png" alt="" fill className="object-cover" />
                     </div>
-                    <div className="container mx-auto px-4 relative z-10 text-center">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                         <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-4">
                             We&apos;d Love to Hear From You
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-white mb-4">
+                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-neutral-content mb-4">
                             Contact <span className="text-primary">Us</span>
                         </h1>
-                        <p className="text-xl text-white/70 max-w-2xl mx-auto">
+                        <p className="text-xl text-neutral-content/70 max-w-2xl mx-auto">
                             Questions, reservations, or just want to say hello? Reach out!
                         </p>
                     </div>
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
                 {/* Contact Content */}
                 <section className="py-20 bg-base-100">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                             {/* Contact Form */}
                             <div>
@@ -174,9 +174,10 @@ export default function ContactPage() {
                                                 <h3 className="font-bold text-lg mb-3">Opening Hours</h3>
                                                 <div className="space-y-2">
                                                     {openingHours.map((item) => (
-                                                        <div key={item.day} className="flex justify-between text-sm">
-                                                            <span className="text-base-content/70">{item.day}</span>
-                                                            <span className="font-semibold">{item.hours}</span>
+                                                        <div key={item.day} className="flex items-center justify-between text-sm w-full gap-4">
+                                                            <span className="text-base-content/70 shrink-0">{item.day}</span>
+                                                            <span className="flex-grow border-b border-dotted border-base-content/30 mx-2 mb-1"></span>
+                                                            <span className="font-semibold shrink-0">{item.hours}</span>
                                                         </div>
                                                     ))}
                                                 </div>

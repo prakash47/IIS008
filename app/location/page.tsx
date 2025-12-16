@@ -38,14 +38,14 @@ export default function LocationPage() {
                     <div className="absolute inset-0 opacity-20">
                         <Image src="/hero-bg.png" alt="" fill className="object-cover" />
                     </div>
-                    <div className="container mx-auto px-4 relative z-10 text-center">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                         <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-4">
                             Find Us
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-white mb-4">
+                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-neutral-content mb-4">
                             Our <span className="text-primary">Location</span>
                         </h1>
-                        <p className="text-xl text-white/70 max-w-2xl mx-auto">
+                        <p className="text-xl text-neutral-content/70 max-w-2xl mx-auto">
                             Nestled in the heart of Pune, we&apos;re easy to find and always welcoming
                         </p>
                     </div>
@@ -53,7 +53,7 @@ export default function LocationPage() {
 
                 {/* Map & Address */}
                 <section className="py-20 bg-base-100">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             {/* Map */}
                             <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px] border-4 border-primary/20">
@@ -152,7 +152,7 @@ export default function LocationPage() {
 
                 {/* How to Reach */}
                 <section className="py-20 bg-base-200">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold font-serif">
                                 How to <span className="text-primary">Reach Us</span>
@@ -176,7 +176,7 @@ export default function LocationPage() {
 
                 {/* Amenities */}
                 <section className="py-20 bg-base-100">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold font-serif">
                                 Cafe <span className="text-primary">Amenities</span>

@@ -27,7 +27,7 @@ export function HeroSection() {
             </div>
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-neutral/80 via-neutral/60 to-neutral/90" />
 
             {/* Decorative Elements */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -35,7 +35,7 @@ export function HeroSection() {
 
             {/* Content */}
             <div
-                className={`relative z-10 text-center text-white px-4 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                className={`relative z-10 text-center text-neutral-content px-4 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                     }`}
             >
                 {/* Badge */}
@@ -51,7 +51,7 @@ export function HeroSection() {
                     </span>
                 </h1>
 
-                <p className="text-xl md:text-2xl lg:text-3xl mb-10 text-white/80 max-w-3xl mx-auto font-light leading-relaxed">
+                <p className="text-xl md:text-2xl lg:text-3xl mb-10 text-neutral-content/80 max-w-3xl mx-auto font-light leading-relaxed">
                     Where every sip tells a story and every bite is a memory in the making.
                 </p>
 
@@ -88,12 +88,7 @@ export function HeroSection() {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-                <span className="text-white/50 text-sm">Scroll to explore</span>
-                <div className="w-6 h-10 border-2 border-white/30 rounded-full p-1">
-                    <div className="w-1.5 h-3 bg-white/70 rounded-full animate-bounce mx-auto" />
-                </div>
-            </div>
+
         </section>
     );
 }

@@ -64,14 +64,14 @@ export default function AboutPage() {
                     <div className="absolute inset-0 opacity-20">
                         <Image src="/hero-bg.png" alt="" fill className="object-cover" />
                     </div>
-                    <div className="container mx-auto px-4 relative z-10 text-center">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                         <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-4">
                             Our Story
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-white mb-4">
+                        <h1 className="text-4xl md:text-6xl font-bold font-serif text-neutral-content mb-4">
                             About <span className="text-primary">Gulmohar</span>
                         </h1>
-                        <p className="text-xl text-white/70 max-w-2xl mx-auto">
+                        <p className="text-xl text-neutral-content/70 max-w-2xl mx-auto">
                             Where passion meets perfection in every cup
                         </p>
                     </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
                 {/* Our Story */}
                 <section className="py-20 bg-base-100">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="relative">
                                 <div className="rounded-3xl overflow-hidden shadow-2xl">
@@ -121,7 +121,7 @@ export default function AboutPage() {
 
                 {/* Mission & Vision */}
                 <section className="py-20 bg-base-200">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                             <div className="card bg-base-100 shadow-xl">
                                 <div className="card-body p-8">
@@ -153,7 +153,7 @@ export default function AboutPage() {
 
                 {/* Our Values */}
                 <section className="py-20 bg-base-100">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
                                 What We Believe
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
                 {/* Team */}
                 <section className="py-20 bg-base-200">
-                    <div className="container mx-auto px-4">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
                                 The People
@@ -215,8 +215,8 @@ export default function AboutPage() {
                 </section>
 
                 {/* CTA */}
-                <section className="py-20 bg-gradient-to-r from-primary to-orange-500 text-white">
-                    <div className="container mx-auto px-4 text-center">
+                <section className="py-20 bg-gradient-to-r from-primary to-orange-500 text-primary-content">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                         <Sparkles className="w-12 h-12 mx-auto mb-6 opacity-80" />
                         <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4">
                             Come Experience Gulmohar
