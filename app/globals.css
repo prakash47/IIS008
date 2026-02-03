@@ -9,14 +9,22 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fef9f3;
+  --foreground: #1a1a1a;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6b6b6b;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.85);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --text-primary: #ededed;
+    --text-secondary: #c0c0c0;
+    --text-muted: #9a9a9a;
   }
 }
 
@@ -34,7 +42,177 @@ body {
   font-family: var(--font-serif);
 }
 
-/* Custom Animations */
+/* ============================================
+   TEXT VISIBILITY FIXES
+   ============================================ */
+
+/* Force proper text colors on light backgrounds */
+[data-theme="cupcake"] {
+  --text-dark: #1f2937;
+  --text-dark-secondary: #4b5563;
+  --text-dark-muted: #6b7280;
+}
+
+/* Fix font-serif/font-bold headings on light backgrounds */
+[data-theme="cupcake"] .bg-base-100 h1,
+[data-theme="cupcake"] .bg-base-100 h2,
+[data-theme="cupcake"] .bg-base-100 h3,
+[data-theme="cupcake"] .bg-base-100 h4,
+[data-theme="cupcake"] .bg-base-200 h1,
+[data-theme="cupcake"] .bg-base-200 h2,
+[data-theme="cupcake"] .bg-base-200 h3,
+[data-theme="cupcake"] .bg-base-200 h4 {
+  color: #1f2937;
+}
+
+/* Override base-content opacity classes to be visible */
+.text-base-content\/60,
+.text-base-content\/70,
+.text-base-content\/80 {
+  color: #4b5563 !important;
+}
+
+.text-base-content\/50 {
+  color: #6b7280 !important;
+}
+
+/* Ensure card titles and descriptions are visible */
+.card-title,
+.card h3,
+.card h2 {
+  color: #1f2937 !important;
+}
+
+.card p {
+  color: #4b5563 !important;
+}
+
+/* Ensure text is always visible with proper contrast */
+.text-visible {
+  color: var(--text-primary) !important;
+}
+
+.text-visible-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-visible-muted {
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   BLOG PROSE CONTENT FIX
+   ============================================ */
+
+/* Force dark text colors in prose content (blog articles) */
+.prose,
+.prose p,
+.prose li,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose span,
+article p,
+article li,
+article span {
+  color: #374151 !important;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  color: #1f2937 !important;
+}
+
+.prose strong,
+.prose b,
+article strong,
+article b {
+  color: #1f2937 !important;
+  font-weight: 700;
+}
+
+.prose em,
+.prose i,
+article em,
+article i {
+  color: #374151 !important;
+}
+
+.prose a,
+article a {
+  color: #ff6b35 !important;
+}
+
+.prose a:hover,
+article a:hover {
+  text-decoration: underline;
+}
+
+/* Override any base-content styles in prose */
+.prose .text-base-content,
+.prose [class*="text-base-content"] {
+  color: #374151 !important;
+}
+
+/* Specific blog-content class for maximum specificity */
+.blog-content,
+.blog-content * {
+  color: #374151 !important;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6,
+.blog-content strong,
+.blog-content b {
+  color: #1f2937 !important;
+}
+
+.blog-content a {
+  color: #ff6b35 !important;
+}
+
+.blog-content ul,
+.blog-content ol {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.blog-content li {
+  color: #374151 !important;
+  margin-bottom: 0.5em;
+}
+
+.text-on-dark {
+  color: var(--text-on-dark) !important;
+}
+
+.text-on-dark-muted {
+  color: var(--text-on-dark-muted) !important;
+}
+
+/* Fix hover visibility - ensure text stays visible */
+.hover-visible:hover {
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   GRADIENT ANIMATIONS
+   ============================================ */
+
 @keyframes gradient {
 
   0%,
@@ -52,6 +230,27 @@ body {
   animation: gradient 3s ease infinite;
 }
 
+@keyframes gradient-x {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 100%;
+  animation: gradient-x 3s ease infinite;
+}
+
+/* ============================================
+   FLOATING ANIMATIONS
+   ============================================ */
+
 @keyframes float {
 
   0%,
@@ -60,24 +259,632 @@ body {
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Delay utilities */
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-delayed {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   MODAL ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-scale-up {
+  animation: scale-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   SHIMMER EFFECT
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================
+   SLIDE ANIMATIONS
+   ============================================ */
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+/* ============================================
+   SCALE ANIMATIONS
+   ============================================ */
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scale-up 0.6s ease-out forwards;
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.5s ease-out forwards;
+}
+
+/* ============================================
+   ROTATE ANIMATIONS
+   ============================================ */
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* ============================================
+   PARTICLE ANIMATION
+   ============================================ */
+
+@keyframes particle-float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.5;
+  }
+
+  25% {
+    transform: translateY(-50px) translateX(20px) rotate(90deg);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-100px) translateX(-10px) rotate(180deg);
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translateY(-50px) translateX(-20px) rotate(270deg);
+    opacity: 0.8;
+  }
+}
+
+.animate-particle {
+  animation: particle-float 10s ease-in-out infinite;
+}
+
+/* ============================================
+   BLUR ANIMATIONS
+   ============================================ */
+
+@keyframes blur-in {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.animate-blur-in {
+  animation: blur-in 0.8s ease-out forwards;
+}
+
+/* ============================================
+   TYPEWRITER EFFECT
+   ============================================ */
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: currentColor;
+  }
+}
+
+.animate-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typewriter 3s steps(40) 1s forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-primary {
+  background: rgba(255, 107, 53, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7c59f 50%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7c59f 25%, #ff6b35 50%, #f7c59f 75%, #ff6b35 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-x 3s linear infinite;
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-rotate {
+  transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+/* ============================================
+   SCROLL-TRIGGERED ANIMATION STATES
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   DELAY UTILITIES
+   ============================================ */
+
+.delay-100 {
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+  transition-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+  transition-delay: 0.8s;
+}
+
+.delay-900 {
+  animation-delay: 0.9s;
+  transition-delay: 0.9s;
+}
+
 .delay-1000 {
   animation-delay: 1s;
+  transition-delay: 1s;
+}
+
+.delay-1500 {
+  animation-delay: 1.5s;
+  transition-delay: 1.5s;
 }
 
 .delay-2000 {
   animation-delay: 2s;
+  transition-delay: 2s;
 }
 
-/* Selection color */
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+
 ::selection {
-  background: oklch(var(--p) / 0.3);
+  background: rgba(255, 107, 53, 0.3);
+  color: #1a1a1a;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff6b35, #f7c59f);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #e55a2b, #f5b88a);
+}
+
+/* ============================================
+   PARALLAX UTILITIES
+   ============================================ */
+
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  will-change: transform;
+}
+
+/* ============================================
+   CARD ENHANCEMENTS
+   ============================================ */
+
+.card-premium {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-premium:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   IMAGE OVERLAY EFFECTS
+   ============================================ */
+
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+  opacity: 1;
+}
+
+.image-overlay img {
+  transition: transform 0.5s ease;
+}
+
+.image-overlay:hover img {
+  transform: scale(1.1);
 }

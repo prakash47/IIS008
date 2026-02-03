@@ -55,44 +55,44 @@ export default function ContactPage() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <div className="form-control">
                                             <label className="label">
-                                                <span className="label-text font-medium">Your Name</span>
+                                                <span className="label-text font-medium text-neutral">Your Name</span>
                                             </label>
                                             <input
                                                 type="text"
                                                 placeholder="John Doe"
-                                                className="input input-bordered w-full focus:input-primary"
+                                                className="input input-bordered w-full focus:input-primary text-neutral placeholder:text-neutral/40"
                                             />
                                         </div>
                                         <div className="form-control">
                                             <label className="label">
-                                                <span className="label-text font-medium">Email Address</span>
+                                                <span className="label-text font-medium text-neutral">Email Address</span>
                                             </label>
                                             <input
                                                 type="email"
                                                 placeholder="john@example.com"
-                                                className="input input-bordered w-full focus:input-primary"
+                                                className="input input-bordered w-full focus:input-primary text-neutral placeholder:text-neutral/40"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text font-medium">Subject</span>
+                                            <span className="label-text font-medium text-neutral">Subject</span>
                                         </label>
                                         <input
                                             type="text"
                                             placeholder="How can we help?"
-                                            className="input input-bordered w-full focus:input-primary"
+                                            className="input input-bordered w-full focus:input-primary text-neutral placeholder:text-neutral/40"
                                         />
                                     </div>
 
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text font-medium">Message</span>
+                                            <span className="label-text font-medium text-neutral">Message</span>
                                         </label>
                                         <textarea
                                             placeholder="Your message..."
-                                            className="textarea textarea-bordered w-full h-40 focus:textarea-primary"
+                                            className="textarea textarea-bordered w-full h-40 focus:textarea-primary text-neutral placeholder:text-neutral/40"
                                         />
                                     </div>
 
@@ -171,13 +171,13 @@ export default function ContactPage() {
                                                 <Clock className="w-7 h-7 text-white" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-lg mb-3">Opening Hours</h3>
+                                                <h3 className="font-bold text-lg mb-3 text-neutral">Opening Hours</h3>
                                                 <div className="space-y-2">
                                                     {openingHours.map((item) => (
                                                         <div key={item.day} className="flex items-center justify-between text-sm w-full gap-4">
-                                                            <span className="text-base-content/70 shrink-0">{item.day}</span>
-                                                            <span className="flex-grow border-b border-dotted border-base-content/30 mx-2 mb-1"></span>
-                                                            <span className="font-semibold shrink-0">{item.hours}</span>
+                                                            <span className="text-neutral/70 shrink-0">{item.day}</span>
+                                                            <span className="flex-grow border-b border-dotted border-neutral/30 mx-2 mb-1"></span>
+                                                            <span className="font-semibold shrink-0 text-neutral">{item.hours}</span>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -185,23 +185,6 @@ export default function ContactPage() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Map */}
-                        <div className="mt-16">
-                            <h2 className="text-2xl font-bold font-serif mb-8 text-center">Find Us on the Map</h2>
-                            <div className="rounded-3xl overflow-hidden shadow-2xl h-[400px] border-4 border-base-200">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2536034823!2d73.85674!3d18.516726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0644db3b1f%3A0x7dde52b7e7f4fef7!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Gulmohar Cafe Location"
-                                />
                             </div>
                         </div>
                     </div>

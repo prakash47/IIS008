@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, ArrowUp, Coffee } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Instagram, Twitter, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const footerLinks = [
@@ -42,8 +43,14 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="text-center md:text-left">
                         <div className="flex items-center gap-3 justify-center md:justify-start mb-4">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center">
-                                <Coffee className="w-6 h-6 text-white" />
+                            <div className="w-12 h-12 rounded-full overflow-hidden">
+                                <Image
+                                    src="/images/logo.png"
+                                    alt="Gulmohar Cafe Logo"
+                                    width={48}
+                                    height={48}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                             <Link href="/" className="text-2xl font-bold font-serif">
                                 Gulmohar Cafe

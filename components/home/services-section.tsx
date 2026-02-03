@@ -86,10 +86,10 @@ export function ServicesSection() {
                     <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
                         What We Offer
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-neutral">
                         Experience <span className="text-primary">Gulmohar</span>
                     </h2>
-                    <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
+                    <p className="text-lg text-neutral/70 max-w-2xl mx-auto">
                         More than just a cafe — we&apos;re your neighborhood spot for great coffee,
                         delicious food, and meaningful connections.
                     </p>
@@ -110,8 +110,8 @@ export function ServicesSection() {
                                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                                     <service.icon className="w-7 h-7 text-white" />
                                 </div>
-                                <h3 className="card-title text-xl group-hover:text-primary transition-colors">{service.title}</h3>
-                                <p className="text-base-content/60 text-sm">{service.description}</p>
+                                <h3 className="card-title text-xl text-neutral group-hover:text-primary transition-colors">{service.title}</h3>
+                                <p className="text-neutral/60 text-sm">{service.description}</p>
                             </div>
                         </Link>
                     ))}

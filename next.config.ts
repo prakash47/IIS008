@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 90],
   },
+  experimental: {
+    optimizeCss: false,
+  },
 };
 
 export default nextConfig;
